@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="author" content="https://github.com/ztvMark">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+
+<!-- Agrega  ng-app="ionicApp" ng-controller="MainCtrl"-->  
+<body ng-app="ionicApp" ng-controller="MainCtrl">
+
+    <ion-nav-view></ion-nav-view>
+
+    <script id="templates/event-menu.html" type="text/ng-template">
+/* Menu Despegable del inicio*/
+      <ion-side-menus enable-menu-with-back-views="false">
+
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content> 
+
+/* Menu desplegable y sus titulos */
+        <ion-side-menu side="left">
+/*Puedes cambiar bar-assertive por bar-positive u otro color*/
+          <ion-header-bar class="bar-assertive">
+            <h1 class="title">Menu</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+<!-- Nota cada enlace tiene el atributo 'menu-close' por lo que el auto del menú se cierra cuando se hace clic en uno de estos enlaces 
+/*Agregar las rutas al controlador*/ -->
+              <a href="#/event/home" class="item" menu-close>Home</a>
+              <a href="#/event/Texto" class="item" menu-close>Texto</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+
+      </ion-side-menus>
+    </script>
+
+<!-- Contenido de los menus -->
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="Home">
+        <ion-content class="padding">
+          <p>Pulsa el icono para ver la parte izquierda del menu.</p>
+          <p>(En escritorio puedes arrastrar de derecha a izquierda)</p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/Texto.html" type="text/ng-template">
+      <ion-view view-title="Titulo Texto">
+        <ion-content>
+          Hola este es un texto
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>
